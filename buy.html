@@ -1,0 +1,60 @@
+<html>
+
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign in</title>
+
+  <script>
+    // define the callAPI function that takes a first name and last name as parameters
+    var callAPI = (email,firstName,lastName,address)=>{
+        // instantiate a headers object
+        var myHeaders = new Headers();
+        // add content type header to object
+        myHeaders.append("Content-Type", "application/json");
+        // using built in JSON utility package turn object to string and store in a variable
+        var raw = JSON.stringify({"email":email,"firstName":firstName,"lastName":lastName,"address":address});
+        // create a JSON object with parameters for API call and store in a variable
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+        // make API call with parameters and use promises to get response
+        fetch("https://q1ey40d2h6.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
+        .then(response => response.text())
+        .then(result => alert(JSON.parse(result).body))
+        .catch(error => console.log('error', error));
+    }
+</script>
+</head>
+
+<body>
+  <div class="main">
+    <p class="sign" >Please enter your personal info</p>
+    <form class="form1">
+
+      <input class="un " type="text" placeholder="email @" id="email">
+      <input class="un " type="text" placeholder="first name" id="fName">
+      <input class="un " type="text" placeholder="last name" id="lName">
+      <input class="un " type="text" placeholder="delivery address" id="addr">
+     
+       <!-- set button onClick method to call function we defined passing input values as parameters -->
+      <a class="submit" type="button" onclick="callAPI(document.getElementById('email').value,
+      document.getElementById('fName').value,document.getElementById('lName').value, document.getElementById('addr').value)" >Order</a>
+     
+                
+    </div>
+     
+    <div class="footer">
+        <p>© Sneaker lover, ANS, 2022<p>
+    </div>
+</body>
+
+</html>
+
+
+
