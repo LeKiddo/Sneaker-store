@@ -8,6 +8,8 @@
   <title>Sign in</title>
 
   <script>
+    var shoeType = localStorage.getItem("type");
+    var shoePrice = localStorage.getItem("price");
     // define the callAPI function that takes a first name and last name as parameters
     var callAPI = (email,firstName,lastName,address)=>{
         // instantiate a headers object
@@ -15,7 +17,7 @@
         // add content type header to object
         myHeaders.append("Content-Type", "application/json");
         // using built in JSON utility package turn object to string and store in a variable
-        var raw = JSON.stringify({"email":email,"firstName":firstName,"lastName":lastName,"address":address});
+        var raw = JSON.stringify({"email":email,"firstName":firstName,"lastName":lastName,"address":address,"shoeType":shoeType,"shoePrice":shoePrice});
         // create a JSON object with parameters for API call and store in a variable
         var requestOptions = {
             method: 'POST',
@@ -29,6 +31,7 @@
         .then(result => alert(JSON.parse(result).body))
         .catch(error => console.log('error', error));
     }
+    
 </script>
 </head>
 

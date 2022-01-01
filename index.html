@@ -30,9 +30,10 @@
 
     <script>
 
-        function BuyInfo(shoe_type) {
-            ;
-            }
+    function shoe_info(type,price) {
+    localStorage.setItem("type",type);
+    localStorage.setItem("price",price);
+    }
        
     </script>
 
@@ -68,7 +69,7 @@
             <h3 class="product__title">The O.J Nike Air Jordan </h3>
             <h4 class="price"> $170</h4>
             <p class="product__description">Needless to present this sneaker royalty, right? For the noobs, just know you can't go wrong with this one!</p>
-            <a href="buy.html" class="btn">Buy now</a>
+            <a href="buy.html" class="btn" onclick="return shoe_info('Nike Air Jordan','170');">Buy now</a>
 
           </article>
   
@@ -77,7 +78,7 @@
             <h3 id="ZX2KBoostcw" class="product__title">Adidas ZX 2K Boost cw </h3>
             <h4 class="price"> $115</h4>
             <p class="product__description">Adidas ZX 2K Boost in cw , colorfull yet casual!-</p>
-            <a href="buy.html" class="btn">Buy now</a>
+            <a href="buy.html" class="btn" onclick="return shoe_info('ZX 2K Boost cw','115');">Buy now</a>
           </article>
   
           <article class="product shoe-black spacing">
@@ -85,7 +86,7 @@
             <h3 id ="ZX2KBoostbw" class="product__title">Adidas ZX 2K Boost bw</h3>
             <h4 class="price"> $115</h4>
             <p class="product__description">Adidas ZX 2K Boost in bw, when casual is everything! </p>
-            <a href="buy.html" class="btn">Buy now</a>
+            <a href="buy.html" class="btn" onclick="return shoe_info('ZX 2K Boost bw','115');">Buy now</a>
 
           </article>
 
@@ -94,7 +95,7 @@
             <h3 id="ZX2KBoostco" class="product__title">Adidas ZX 2K Boost co </h3>
             <h4 class="price"> $115</h4>
             <p class="product__description">Adidas ZX 2K Boost in co, let yourself be seen! </p>
-            <a href="buy.html" class="btn">Buy now</a>
+            <a href="buy.html" class="btn" onclick="return shoe_info('ZX 2K Boost co','115');">Buy now</a>
 
           </article>
   
